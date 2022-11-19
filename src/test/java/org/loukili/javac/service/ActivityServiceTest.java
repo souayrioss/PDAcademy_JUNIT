@@ -30,6 +30,29 @@ class ActivityServiceTest {
     assertEquals(expected, activityService.add(expected));
   }
 
- 
+  @Test
+  @Order(2)
+  void shouldGetAListOfActivities() throws ParseException {
+    ActivityService activityService = new ActivityService();
+    List<Activity> expected = new ArrayList<>();
+    Activity act1 =new Activity();
+    act1.setTitle("whoami");
+    act1.setId(7L);
+    act1.setDescription("description");
+    act1.setState(State.ACTIVE);
+    act1.setActivityType(ActivityType.TALK);
+    Activity act2 =new Activity();
+    act2.setTitle("Saiid");
+    act2.setId(8L);
+    act2.setState(State.ACTIVE);
+    act2.setActivityType(ActivityType.FORMATION);
+    expected.add(act1);
+    expected.add(act2);
+    //assertNotSame(expected, activityService.getAll());
+    assertEquals(expected,activityService.getAll());
+  }
+
+
+
 
 }
