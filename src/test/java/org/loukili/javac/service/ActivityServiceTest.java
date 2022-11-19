@@ -52,7 +52,19 @@ class ActivityServiceTest {
     assertEquals(expected,activityService.getAll());
   }
 
-
+  @Test
+  @Order(3)
+  void shouldGetActivity() throws ParseException {
+    ActivityService activityService = new ActivityService();
+    Activity expected = new Activity();
+    expected.setTitle("whoami");
+    expected.setId(7L);
+    expected.setDescription("description");
+    expected.setState(State.ACTIVE);
+    expected.setActivityType(ActivityType.TALK);
+    //assertNotSame(expected, activityService.getAll());
+    assertEquals(expected,activityService.find(7));
+  }
 
 
 }
