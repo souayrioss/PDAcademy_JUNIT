@@ -32,8 +32,8 @@ public class ExerciseService implements ICRUDService<Exercise>,IFilterService<Ex
   }
 
   @Override
-  public void update(Exercise exercise) {
-    exerciseDao.update(exercise);
+  public Exercise update(Exercise exercise) {
+    return exerciseDao.update(exercise);
   }
 
   @Override

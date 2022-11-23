@@ -1,21 +1,15 @@
-package org.loukili.javac.service;
+package org.pda.junit.service;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.pda.junit.entity.Activity;
-import org.pda.junit.entity.ActivityType;
-import org.pda.junit.entity.State;
-import org.pda.junit.service.ActivityService;
+import org.pda.junit.entity.*;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ActivityServiceTest {
 
@@ -64,6 +58,37 @@ class ActivityServiceTest {
     expected.setActivityType(ActivityType.TALK);
     //assertNotSame(expected, activityService.getAll());
     assertEquals(expected,activityService.find(7));
+  }
+  @Test
+  @Disabled
+  void shouldGetCountActivity() throws ParseException {
+    ActivityService activityService = new ActivityService();
+    //assertNotSame(expected, activityService.getAll());
+    assertEquals(2,activityService.getCount());
+  }
+  @Test
+  @Disabled
+  void shouldUpdateActivity() throws ParseException {
+    ActivityService activityService = new ActivityService();
+
+    //assertNotSame(expected, activityService.getAll());
+    Responsible responsible = new Responsible();
+    responsible.setFirstName("aaaaaa");
+    responsible.setLastName("bbbbbbb");
+    Exercise exercise = new Exercise();
+    exercise.setTitle("eeeeeeeeeecc");
+    Activity expected =new Activity();
+    expected.setId(7L);
+    expected.setTitle("Jdida");
+    expected.setState(State.DESACTIVE);
+    expected.setActivityType(ActivityType.TALK);
+    expected.setDescription("azertyuzz");
+    expected.setResponsible(responsible);
+    List<Exercise> exerciseList = new ArrayList<>();
+    exerciseList.add(exercise);
+    expected.setExercises(exerciseList);
+
+    assertEquals(expected, activityService.update(expected));
   }
 
 

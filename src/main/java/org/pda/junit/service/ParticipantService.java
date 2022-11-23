@@ -34,8 +34,8 @@ public class ParticipantService implements ICRUDService<Participant>,IFilterServ
   }
 
   @Override
-  public void update(Participant participant) {
-    participantDao.add(participant);
+  public Participant update(Participant participant) {
+   return participantDao.add(participant);
   }
 
   @Override

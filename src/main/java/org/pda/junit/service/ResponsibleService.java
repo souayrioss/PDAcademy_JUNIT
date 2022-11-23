@@ -27,8 +27,8 @@ public class ResponsibleService implements ICRUDService<Responsible> {
   }
 
   @Override
-  public void update(Responsible responsible) {
-    responsibleDao.update(responsible);
+  public Responsible update(Responsible responsible) {
+    return responsibleDao.update(responsible);
   }
 
   @Override

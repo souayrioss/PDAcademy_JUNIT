@@ -51,11 +51,12 @@ public class ParticipantDao implements Idao<Participant> {
   }
 
   @Override
-  public void update(Participant participant) {
+  public Participant update(Participant participant) {
     transaction = (Transaction) em.getTransaction();
     transaction.begin();
     em.merge(participant);
     transaction.commit();
+    return participant;
   }
 
   @Override

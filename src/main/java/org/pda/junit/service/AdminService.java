@@ -1,5 +1,7 @@
 package org.pda.junit.service;
 
+import org.pda.junit.dao.AdminDao;
+import org.pda.junit.dao.Idao;
 import org.pda.junit.entity.Admin;
 import org.pda.junit.repository.AdminRepository;
 import org.pda.junit.repository.IAuthRepository;
@@ -8,6 +10,7 @@ import java.util.List;
 
 public class AdminService implements ICRUDService<Admin>,IAuthService<Admin> {
   private IAuthRepository<Admin> adminRepository = new AdminRepository();
+  private Idao<Admin> adminDao = new AdminDao();
 
   @Override
   public Admin find(long id) {
@@ -21,12 +24,12 @@ public class AdminService implements ICRUDService<Admin>,IAuthService<Admin> {
 
   @Override
   public Admin add(Admin user) {
-    return null;
+    return adminDao.add(user);
   }
 
   @Override
-  public void update(Admin user) {
-
+  public Admin update(Admin user) {
+    return null;
   }
 
   @Override

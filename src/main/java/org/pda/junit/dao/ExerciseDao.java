@@ -51,11 +51,12 @@ public class ExerciseDao  implements Idao<Exercise>{
   }
 
   @Override
-  public void update(Exercise exercise) {
+  public Exercise update(Exercise exercise) {
     transaction = (Transaction) em.getTransaction();
     transaction.begin();
     em.merge(exercise);
     transaction.commit();
+    return exercise;
   }
 
   @Override

@@ -50,8 +50,8 @@ public class ResponsibleDao implements Idao<Responsible> {
   }
 
   @Override
-  public void update(Responsible entity) {
-
+  public Responsible update(Responsible entity) {
+  return null;
   }
 
   @Override
